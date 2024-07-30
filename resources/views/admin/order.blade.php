@@ -43,7 +43,10 @@
     <div class="page-content">
         <div class="page-header">
             <div class="container-fluid">
+                <h3>All Orders</h3>
+                <br>
                 <div class="table_center">
+
                     <table>
                         <tr>
                             <th>Customer Name</th>
@@ -52,6 +55,7 @@
                             <th>Product Title</th>
                             <th>Price</th>
                             <th>Image</th>
+                            <th>Payment Status</th>
                             <th>Status</th>
                             <th>Change Status</th>
                             <th>Print PDF</th>
@@ -64,6 +68,7 @@
                                 <td>{{ $data->product->title }}</td>
                                 <td>{{ $data->product->price }}</td>
                                 <td><img width="150px" src="products/{{ $data->product->image }}" alt=""></td>
+                                <td>{{ $data->payment_status }}</td>
                                 <td>
 
 
@@ -76,11 +81,13 @@
                                     @endif
 
                                 </td>
-                                <td> <a class="btn btn-primary" href="{{ url('on_the_way', $data->id) }}">On The Way</a>
+                                <td> <a class="btn btn-primary" href="{{ url('on_the_way', $data->id) }}">On The
+                                        Way</a>
                                     <a class="btn btn-success" href="{{ url('delivered', $data->id) }}">Delivered</a>
                                 </td>
                                 <td>
-                                    <a class=" btn btn-secondary" href="{{url('print_pdf',$data->id)}}">Print PDF</a>
+                                    <a class=" btn btn-secondary" href="{{ url('print_pdf', $data->id) }}">Print
+                                        PDF</a>
                                 </td>
                             </tr>
                         @endforeach

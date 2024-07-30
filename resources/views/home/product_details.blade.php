@@ -75,6 +75,10 @@
                             </p>
 
                         </div>
+                        <div class="detail-box">
+
+                            <a class="btn btn-primary" href="{{ url('add_cart', $data->id) }}">Add to cart</a>
+                        </div>
 
                     </div>
                 </div>

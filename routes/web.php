@@ -16,7 +16,7 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__ . '/auth.php';
-
+route::get('print_pdf/{id}', [AdminController::class, 'print_pdf'])->middleware(['auth', 'admin']);
 route::get('admin/dashboard', [HomeController::class, 'index'])->middleware(['auth', 'admin']);
 route::get('view_category', [AdminController::class, 'view_category'])->middleware(['auth', 'admin']);
 route::post('add_category', [AdminController::class, 'add_category'])->middleware(['auth', 'admin']);
@@ -27,7 +27,7 @@ route::get('add_product', [AdminController::class, 'add_product'])->middleware([
 route::post('upload_product', [AdminController::class, 'upload_product'])->middleware(['auth', 'admin']);
 route::get('view_product', [AdminController::class, 'view_product'])->middleware(['auth', 'admin']);
 route::get('delete_product/{id}', [AdminController::class, 'delete_product'])->middleware(['auth', 'admin']);
-route::get('update_product/{id}', [AdminController::class, 'update_product'])->middleware(['auth', 'admin']);
+route::get('update_product/{slug}', [AdminController::class, 'update_product'])->middleware(['auth', 'admin']);
 route::post('edit_product/{id}', [AdminController::class, 'edit_product'])->middleware(['auth', 'admin']);
 route::get('product_search', [AdminController::class, 'product_search'])->middleware(['auth', 'admin']);
 route::get('product_details/{id}', [HomeController::class, 'product_details']);
@@ -45,3 +45,7 @@ Route::controller(HomeController::class)->group(function(){
     Route::get('stripe/{value}', 'stripe');
     Route::post('stripe/{value}', 'stripePost')->name('stripe.post');
 });
+Route::get('/shop', [HomeController::class,'shop']);
+Route::get('/why', [HomeController::class,'why']);
+Route::get('/testimonial', [HomeController::class,'testimonial']);
+Route::get('/contact', [HomeController::class,'contact']);

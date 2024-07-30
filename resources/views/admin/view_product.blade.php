@@ -50,7 +50,7 @@
     <div class="page-content">
         <div class="page-header">
             <div class="container-fluid">
-                <form action="{{url('product_search')}}" method="get">
+                <form action="{{ url('product_search') }}" method="get">
                     @csrf
                     <input type="search" name="search">
                     <input type="submit" class="btn btn-secondary" value="Search">
@@ -95,7 +95,7 @@
                                 <td> <img height="140" width="140px" src="products/{{ $products->image }}"
                                         alt=""> </td>
                                 <td> <a class="btn btn-success"
-                                        href="{{ url('update_product', $products->id) }}">Update</a>
+                                        href="{{ url('update_product', $products->slug) }}">Update</a>
                                 </td>
                                 <td> <a class="btn btn-danger" onclick="confirmation(event)"
                                         href="{{ url('delete_product', $products->id) }}">Delete</a>
