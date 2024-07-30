@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-<html>
 
-<head>
-    @include('home.css')
-</head>
-
-<body>
-    <div class="hero_area">
-
-        @include('home.header')
 
         <x-guest-layout>
             <form method="POST" action="{{ route('register') }}">
@@ -79,13 +69,3 @@
                 </div>
             </form>
         </x-guest-layout>
-
-
-
-
-
-
-
-</body>
-
-</html>
